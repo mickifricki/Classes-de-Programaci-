@@ -10,7 +10,7 @@ public:
 	*/
 	void SetZero()
 	{
-		x = y = 0.0f; //una assignació. Lo de la dreta ho assigno a l'esquerra. Una assignació retorna el valor que ha agafat. Per això podem escriure aquesta línia.
+		fx = fy = 0.0f; //una assignació. Lo de la dreta ho assigno a l'esquerra. Una assignació retorna el valor que ha agafat. Per això podem escriure aquesta línia.
 	}                 // y pren el valor de 0 i per això el pot assugnar a x
 
 	/*Destructor -> Not necessary to call it
@@ -21,19 +21,35 @@ public:
 	*/
 	bool IsZero() const //no canvia l'estat de la classe. Ha de ser constant
 	{
-		return x == 0.0f && y == 0.0f; //avaluem si x es igual a 0 i y es igual a 0
+		return fx == 0.0f && fy == 0.0f; //avaluem si x es igual a 0 i y es igual a 0
 	}
 
 	void Negate()
 	{
-		x = -x;
-		y = -y;
+		fx = -fx;
+		fy = -fy;
 	}
 
+	Point2f operator+ (const Point2f& a) const  //Point2f retorna un objecte. operator declara un operador, el + indica que és de suma. "const Point2f& a" declara
+												// la intenció de no modificar la a
+	{
+		Point2f tmp; //variable nova tmp = temporal contindrà la suma de jo i el que m'ha passat (paraula de Ricard)
+		tmp.fx = fx + a.fx;
+		tmp.fy = fy + a.fy;
 
+		return tmp; //tornem l'objecte perquè es pugui utilitzar
+	}
+	Point2f& operator+= (const Point2f& a)
+	{
+		fx += a.fx;
+		fy += a.fy;
+
+		return(*this) //this es un ounter a la classe. el mateix objecte que estás cridant ?
+	}
+	//afegir operadors +, +=, - , -=
 
 public:
-	float x, y;
+	float fx, fy;
 };
 
 #endif //_Point2f_H_

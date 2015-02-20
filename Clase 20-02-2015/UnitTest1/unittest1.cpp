@@ -12,11 +12,20 @@ namespace UnitTest1
 		
 		TEST_METHOD(TestPoint2f)
 		{
-			Point2f punt; 
+			Point2f punt, p2, p3;
 
-			punt.SetZero();
+			p2.fx = 1.0f;
+			p2.fy = 3.0f;
 
-			Assert::IsTrue(punt.IsZero());
+			p3.fx = 1.0f;
+			p3.fy = 3.0f;
+
+			punt = p2 + p3;
+
+			Assert::AreEqual(punt.fx, 2.0f);
+			Assert::Are
+
+			
 		}
 
 	};

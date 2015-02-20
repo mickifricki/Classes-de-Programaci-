@@ -8,13 +8,13 @@ Hungarian Notation -> Indiques en la variable el seu tipus. Ex: bool Pepito -> b
 
 FileName:
 
--Will use PascalCase skipping the first two letters
--Example: p2log.h
+-Will use PascalCase 
+-Example: Point2f.h
 
 
 Variables:
 
--Will use snake_case without Hungarian Notation
+-Will use snake_case with Hungarian Notation
 -Example: int screen_width;
 
 
@@ -26,5 +26,5 @@ Class Names:
 
 Method Names:
 
--Will use camelCase
--Example: isZero()
+-Will use PascalCase
+-Example: IsZero()
