@@ -74,3 +74,9 @@ public:
 //exemples if(x = 0.f) {} interpreta x = 0.0f com 0 i es pot utilitzar alguna cosa així sense necessitat == 
 //                        un if s'executa sempre que el valor no sigui 0 (en aquest cas ho seria)
 // Punt de entrada -> main Podem utilitzar int main(int argc, char** argv) per comprovar si la classe compila
+
+//Exemple de classe:
+//Punt2D punt;
+//Punt2D* p;             punt.x = 10f; == p->x = 10.0f;
+//p = &punt;
+//Punt2D% refp = punt; amb & indiquem que estem creant una referència.
