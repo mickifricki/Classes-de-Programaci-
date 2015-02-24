@@ -23,7 +23,7 @@ namespace UnitTest1
 			punt = p2 -= p3;
 			
 
-			Assert::AreEqual(punt.fy, 6.0f);
+			Assert::AreEqual(punt.fy, 0.0f);
 			p2.Negate();
 		
 
