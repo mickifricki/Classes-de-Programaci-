@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "C:\Users\miquelsc4\Desktop\Classes-de-Programaci-\Clase 20-02-2015\Clase 20-02-2015\Point2f.h"
+#include "D:\Users\miquelsc4\Documents\GitHub\Classes-de-Programaci-\Clase 20-02-2015\Clase 20-02-2015\Point2f.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -20,10 +20,14 @@ namespace UnitTest1
 			p3.fx = 1.0f;
 			p3.fy = 3.0f;
 
-			punt = p2 + p3;
+			punt = p2 -= p3;
+			
 
-			Assert::AreEqual(punt.fx, 2.0f);
-			Assert::Are
+			Assert::AreEqual(punt.fy, 6.0f);
+			p2.Negate();
+		
+
+			printf("%d", p2.fx);
 
 			
 		}

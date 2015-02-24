@@ -44,9 +44,26 @@ public:
 		fx += a.fx;
 		fy += a.fy;
 
-		return(*this) //this es un ounter a la classe. el mateix objecte que estás cridant ?
+		return(*this); //this es un punter a la classe. el mateix objecte que estás cridant ?
 	}
-	//afegir operadors +, +=, - , -=
+
+	Point2f operator- (const Point2f& a) const
+	{
+		Point2f tmp;
+		tmp.fx = fx - a.fx;
+		tmp.fy = fy - a.fy;
+
+		return tmp;
+	}
+
+	Point2f& operator-= (const Point2f& a)
+	{
+		fx -= a.fx;
+		fy -= a.fy;
+
+		return(*this);
+	}
+	
 
 public:
 	float fx, fy;
