@@ -15,7 +15,7 @@ FileName:
 Variables:
 
 -Will use snake_case with Hungarian Notation
--Example: int screen_width;
+-Example: int iscreen_width;
 
 
 Class Names:
