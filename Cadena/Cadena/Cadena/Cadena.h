@@ -1,5 +1,5 @@
 //L'objectiu es que la classe cadena no peti mai. 
-//Nos adentramos en el fantástico mundo de controlar la memoria. (Palaabra de Ricard)
+//Nos adentramos en el fantástico mundo de controlar la memoria. (Palabra de Ricard)
 //String:
 //      -Mai surt de rang. No ha d'accedir a una memòria que no sigui seva.
 //      -3 constructors: String() <- constructor buit. 0 tamany, conté 0.
@@ -12,32 +12,33 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
+#include <stdio.h>
 
 #define TMP_STRING_SIZE 4096
 
 class String
 {
 private:
-	int ilength;
+	int istring_length;
 	char* cstring;
 	void Alloc(unsigned int required_memory)
 	{
-		ilength = required_memory;
-		cstring = new char[ilength];
+		istring_length = required_memory;
+		cstring = new char[istring_length];
 	}
 public: 
 	// ->                                     
 		String()                          
 		{ 
-			ilength = 1;                     //Alloc(1);
-			cstring = new char[ilength];     //Clear();
+			istring_length = 1;                     //Alloc(1);
+			cstring = new char[istring_length];     //Clear();
 			cstring[0] = '\0';
 		}
 
 		String(unsigned int size)
 		{
-			if (ilength > 0)
-				Alloc(ilength);
+			if (istring_length > 0)
+				Alloc(istring_length);
 			else
 				Alloc(1);
 
@@ -46,9 +47,9 @@ public:
 		}
 		String(const char* cnew_string)
 		{
-			ilength = strlen(cnew_string) + 1;
-			cstring = new char[ilength];
-			strcpy_s(cstring, ilength, cnew_string);
+			istring_length = strlen(cnew_string) + 1;
+			cstring = new char[istring_length];
+			strcpy_s(cstring, istring_length, cnew_string);
 		}
 		String(const String&);
 
@@ -62,7 +63,7 @@ public:
 		}
 		String(const char* format, ...)
 		{
-			ilength = 0;
+			istring_length = 0;
 
 			if (format != NULL)
 			{
@@ -77,10 +78,10 @@ public:
 				if (res > 0)
 				{
 					Alloc(res + 1);
-					strcpy_s(cstring, ilength, tmp);
+					strcpy_s(cstring, istring_length, tmp);
 				}
 			}
-			if (ilength == 0)
+			if (istring_length == 0)
 			{
 
 			}
@@ -112,13 +113,13 @@ public:
 		{
 			if (string != NULL)
 			{
-				if (strlen(string) + 1 > ilength)
+				if (strlen(string) + 1 > istring_length)
 				{
 					delete[] cstring;
 					Alloc(strlen(string) + 1);
 				}
 
-				strcpy_s(cstring, ilength, string);
+				strcpy_s(cstring, istring_length, string);
 			}
 			else
 			{
@@ -129,10 +130,41 @@ public:
 
 		const String operator= (const String& string)
 		{
-			if (string.length() + 1 > ilength)
+			if (string != NULL){
+				if (string.istring_length + 1 > istring_length)
+				{
+					delete[] cstring;
+					Alloc(string.istring_length + 1);
+				}
+				strcpy_s(cstring, string.istring_length, string.cstring);
+			}
+			else
+			{
+				Clear();
+			}
+			return (*this);
+		}
+		const String operator+= (const char* string)
+		{
+			if (string != NULL)
+			{
+				if (strlen(string) + 1 > istring_length)
+				{
+					delete[] cstring;
+					Alloc(strlen(string) + 1);
+				}
+
+				strcat(cstring, string);
+			}
+			else
+			{
+				Clear();
+			}
+			return (*this);
 		}
 
-		void Clear();
+
+		void Clear()
 		{
 			cstring[0] = '\0';
 		}
@@ -140,10 +172,3 @@ public:
 
 #endif
 
-//Apunts: tarda més en compilar un .h que un .cpp
-//cast: canviar un tipus de variable a un altre
-//Ex: int a;
-//    char b = 'c';
-//    a = (int) b;
-//Això ens donarà el codi asci de c.
-//THIS es un punter que existeix en cada mètode d'una classe i que apunta a la mateixa(classe).
