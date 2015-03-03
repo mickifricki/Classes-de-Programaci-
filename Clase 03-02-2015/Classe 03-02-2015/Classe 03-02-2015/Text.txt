@@ -26,3 +26,7 @@ Els templates són generadors de codi, per fer-ne un de la funció swap(), es fari
 	a = b;
 	b = tmp;
 	}
+
+
+
+Linked List (buscar informació)
