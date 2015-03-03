@@ -12,7 +12,7 @@ namespace UnitTest1
 	public:
 
 
-		TEST_METHOD(testStringEmpty)
+		TEST_METHOD(testStringIsEmpty)
 		{
 			String string1;
 
