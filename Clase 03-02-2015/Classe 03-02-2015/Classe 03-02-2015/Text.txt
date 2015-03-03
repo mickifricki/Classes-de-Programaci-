@@ -1,0 +1,28 @@
+Funció swap
+
+void swap (int& a, int& b) En c++
+	{
+	int tmp;
+	tmp = a;
+	a = b;
+	b = tmp;
+	}
+
+void swap (int* a, int* b)
+	{
+	int tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+	}
+
+Els templates són generadors de codi, per fer-ne un de la funció swap(), es faria així:
+
+	template<TIPUS>
+	void swap (TIPUS a, TIPUS b) En c++
+	{
+	TIPUS tmp;
+	tmp = a;
+	a = b;
+	b = tmp;
+	}

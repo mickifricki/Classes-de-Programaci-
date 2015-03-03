@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "C:\Users\micki\Desktop\Classes-de-Programaci-\Clase 20-02-2015\Clase 20-02-2015\Point2f.h"
-#include "C:\Users\micki\Desktop\Classes-de-Programaci-\Clase 20-02-2015\Clase 20-02-2015\Point2f.cpp"
+#include "..\Clase 20-02-2015\Point2f.h"
+#include "..\Clase 20-02-2015\Point2f.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -146,5 +146,17 @@ namespace UnitTest1
 
 			Assert::AreEqual(a.distanceTo(b) , 5.0f);
 		}
+		TEST_METHOD(Prova)
+		{
+			Point2f a;
+			a.fx = 1.0f;
+			a.fy = 2.0f;
+			Point2f b = a;
+
+		}
+
+			
+
+			
 	};
 }
