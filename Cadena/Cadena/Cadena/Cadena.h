@@ -9,189 +9,83 @@
 #ifndef _Cadena_H
 #define _Cadena_H
 
+////////////////////////////////
+//Includes
+////////////////////////////////
+
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
 #include <stdio.h>
-#include <vector>
-#include <memory>
+
 
 #define TMP_STRING_SIZE 4096
 
 class String
 {
 private:
+
 	int istring_length;
+
 	char* cstring;
-	void Alloc(unsigned int required_memory)
-	{
-		istring_length = required_memory;
-		cstring = new char[istring_length];
-	}
+
+	void Alloc(unsigned int required_memory);
+
 public: 
-	// ->                                     
-		String()                          
-		{ 
-			istring_length = 1;                     //Alloc(1);
-			cstring = new char[istring_length];     //Clear();
-			cstring[0] = '\0';
-		}
 
-		String(unsigned int size)
-		{
-			if (istring_length > 0)
-				Alloc(istring_length);
-			else
-				Alloc(1);
+////////////////////////////////
+//Constructors
+////////////////////////////////
 
-			this->Clear();
+	String();
 
-		}
-		String(const char* cnew_string)
-		{
-			istring_length = strlen(cnew_string) + 1;
-			cstring = new char[istring_length];
-			strcpy_s(cstring, istring_length, cnew_string);
-		}
-		String(const String& string)
-		{
-				reset();
-				reserve(string.istring_length);
-				memcpy(cstring, string.cstring, string.Length() + 1);
-				istring_length = string.Length();
-			
-		}
+	String(unsigned int size);
 
-		~String()
-		{
-			delete[] cstring;
-		}
-		int len() const
-		{
-			return strlen(cstring);
-		}
-		String(const char* format, ...)
-		{
-			istring_length = 0;
+	String(const char* cnew_string);
 
-			if (format != NULL)
-			{
-				static char tmp[TMP_STRING_SIZE];
-				static va_list ap;
+	String(const String& string);
 
-				//Construct the string from the variable arguments
-				va_start(ap, format);
-				int res = vsprintf_s(tmp, TMP_STRING_SIZE, format, ap);
-				va_end(ap);
+	//String(const char* format, ...);
 
-				if (res > 0)
-				{
-					Alloc(res + 1);
-					strcpy_s(cstring, istring_length, tmp);
-				}
-			}
-			if (istring_length == 0)
-			{
-				Alloc(1);
-				Clear();
-			}
-		}
+////////////////////////////////
+//Destructors
+////////////////////////////////
 
-		//Operators
-		bool operator == (const String& string) const
-		{
-			return strcmp(string.cstring, cstring) == 0;
-		}
-		bool operator == (const char* string) const
-		{
-			if (string != NULL)
-				return strcmp(string, cstring) == 0;
-			return false;
-		}
+	~String();
 
-		bool operator != (const String& string) const
-		{
-			return strcmp(string.cstring, cstring) != 0;
-		}
-		bool operator != (const char* string) const
-		{
-			if (string != NULL)
-				return strcmp(string, cstring) != 0;
-			return false;
-		}
-		const String  operator= (const char* string)
-		{
-			if (string != NULL)
-			{
-				if (strlen(string) + 1 > istring_length)
-				{
-					delete[] cstring;
-					Alloc(strlen(string) + 1);
-				}
-
-				strcpy_s(cstring, istring_length, string);
-			}
-			else
-			{
-				Clear();
-			}
-			return (*this);
-		}
-
-		const String operator= (const String& string)
-		{
-			if (string != NULL){
-				if (string.istring_length + 1 > istring_length)
-				{
-					delete[] cstring;
-					Alloc(string.istring_length + 1);
-				}
-				strcpy_s(cstring, string.istring_length, string.cstring);
-			}
-			else
-			{
-				Clear();
-			}
-			return (*this);
-		}
-		const String operator+= (const char* string)
-		{
-			if (string != NULL)
-			{
-				if (strlen(string) + 1 > istring_length)
-				{
-					delete[] cstring;
-					Alloc(strlen(string) + 1);
-				}
-
-				strcat(cstring, string);
-			}
-			else
-			{
-				Clear();
-			}
-			return (*this);
-		}
-
-		unsigned int  Length() const
-		{
-			return(istring_length);
-		}
-
-		char* GetString() const
-		{
-			return cstring;
-		}
-		unsigned int Capacity() const
-		{
-			return(TMP_STRING_SIZE);
-		}
+////////////////////////////////
+//Operators
+////////////////////////////////
 
 
-		void Clear()
-		{
-			cstring[0] = '\0';
-		}
+	bool operator == (const String& string) const;
+
+	bool operator == (const char* string) const;
+
+
+	bool operator != (const String& string) const;
+
+	bool operator != (const char* string) const;
+
+	const String  operator= (const char* string);
+
+
+	const String operator= (const String& string);
+
+////////////////////////////////
+//Functions
+////////////////////////////////
+
+	 int  Length() const;
+
+
+	char* GetString() const;
+
+	 int Capacity() const;
+
+
+	void Clear();
+
 };
 
 #endif

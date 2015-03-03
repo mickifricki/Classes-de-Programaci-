@@ -1,0 +1,30 @@
+CodeStyle 
+
+camelCase -> La primera lletra en majúscula menys la de la primera paraula
+PascalCase -> Totes les primeres lletres en majúscula
+snake_case -> Totes minúscules i separades per guiò baix
+Hungarian Notation -> Indiques en la variable el seu tipus. Ex: bool Pepito -> bool bPepito
+
+
+FileName:
+
+-Will use PascalCase 
+-Example: Point2f.h
+
+
+Variables:
+
+-Will use snake_case with Hungarian Notation
+-Example: int iscreen_width;
+
+
+Class Names:
+
+-Will use PascalCase
+-Example: class Point2f
+
+
+Method Names:
+
+-Will use PascalCase
+-Example: IsZero()
