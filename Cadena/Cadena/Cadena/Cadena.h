@@ -13,6 +13,8 @@
 #include <stdarg.h>
 #include <string.h>
 #include <stdio.h>
+#include <vector>
+#include <memory>
 
 #define TMP_STRING_SIZE 4096
 
@@ -51,7 +53,14 @@ public:
 			cstring = new char[istring_length];
 			strcpy_s(cstring, istring_length, cnew_string);
 		}
-		String(const String&);
+		String(const String& string)
+		{
+				reset();
+				reserve(string.istring_length);
+				memcpy(cstring, string.cstring, string.Length() + 1);
+				istring_length = string.Length();
+			
+		}
 
 		~String()
 		{
@@ -83,7 +92,8 @@ public:
 			}
 			if (istring_length == 0)
 			{
-
+				Alloc(1);
+				Clear();
 			}
 		}
 
@@ -161,6 +171,20 @@ public:
 				Clear();
 			}
 			return (*this);
+		}
+
+		unsigned int  Length() const
+		{
+			return(istring_length);
+		}
+
+		char* GetString() const
+		{
+			return cstring;
+		}
+		unsigned int Capacity() const
+		{
+			return(TMP_STRING_SIZE);
 		}
 
 

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "C:\Users\micki\Desktop\Classes-de-Programaci-\Cadena\Cadena\Cadena\Cadena.h"
+#include "..\Cadena\cadena.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
