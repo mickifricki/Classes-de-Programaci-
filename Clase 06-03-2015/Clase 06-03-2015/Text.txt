@@ -70,3 +70,4 @@ Elements d'una llista:
 		tmp -> next = new_node;
 	}
 
+	Deures: Fer el mètode Delete. 
