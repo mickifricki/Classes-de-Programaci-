@@ -1,0 +1,72 @@
+Llista enllaçada: són llistes que al final tenen un punter que apunta a una altra llista i la última acaba en NULL.
+
+1 2 8 7 17 <- array
+
+per afegir un nou element:
+-creem nou
+-copiar
+-esborrar
+
+new i delete són lents, hem d'utilitzar els menors possibles.
+
+Una llista enllaçada no és necessari que estigui contigua en memòria. No es sempre la millor opció.
+En una llista enllaçada podem substituir, afegir o extreure valors aïllats, sense necessitat de copiar la llista sencera, esborrar-la o crear-ne una de nova.
+Només cal fer un new d'un valor.
+Un array es recórre molt més ràpid que una llista.
+Una llista no és necessari saber quina mida té. 
+
+Complexitat algorítmica: quantes iteracions has de fer de l'algoritme:
+(O)1 -> trobes el que busques en un pas. (arrays)
+(O)n -> trobes el que busques en n passos. (llistes)
+
+Operacions  Esborrar  Afegir  Iterar  
+
+Array         10%       1%     99%
+
+Llista        90%      99%      1%
+
+És més fàcil esborrar en una llista que en un array, ja que un array sempre ha de ser continu. La majoria de vegades és millor la llista. 
+És més fàcil afegir en una llista pel mateix motiu que esborrar. Només seria més ràpid l'array si hem d'afegir al final o ja tenim més memòria alocatada.
+Si volem iterar és més útil un array. Hi ha excepcions, com per exemple, que la llista fós d'un sol element, però això no passa gairebé mai.
+
+Elements d'una llista: 
+    -Node: un struct (sempre públic):
+	    *enter
+		*punter al següent node
+	El punter del principi és sagrat, si el perdem l'hem cagat.
+
+	struct node {
+		int valor;
+		node* next;
+	}
+
+	class SList {
+		node* start; (ha de ser privat. És intocable)
+		SList start(NULL){};
+		void Add (int valor); -> estem afegint un valor. No pot ser constant.
+		void Del(node* n); -> estem esborramt un valor. No pot ser constant.
+		unsigned int Count() const;
+	}
+
+	unsigned int Count () cosnt { -> desenvolupat
+		unsigned int resultat = 0;
+		node* tmp = start;
+			while (tmp != NULL){
+				tmp = tmp -> next;
+				resultat ++;}
+		return resultat;
+	}
+
+	void Add (int valor) {
+		node* new_node = new node;
+		new_node -> valor = valor;
+		new_node -> next = NULL;
+		node* tmp = start;
+		if(tmp != NULL){
+		while (tmp->next != NULL){
+			tmp = tmp->next;
+		}
+		}
+		tmp -> next = new_node;
+	}
+
