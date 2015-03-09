@@ -10,11 +10,15 @@ class SList {
 		node* next;
 	};
 
+private:
 	node* start;
+public:
+
+	
 	SList():start(NULL){};
 	void Add(int valor) {
 		node* new_node = new node;
-		new_node->valor = valor;
+		new_node->valor = valor; 
 		new_node->next = NULL;
 		node* tmp = start;
 		if (tmp != NULL){
@@ -36,6 +40,9 @@ class SList {
 	};
 
 	void Del(node* n){
+		
+
+
 
 	}
 	
