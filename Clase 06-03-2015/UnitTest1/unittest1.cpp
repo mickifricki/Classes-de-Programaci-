@@ -21,8 +21,9 @@ namespace UnitTest1
 			Lista.AddStart(6);
 			Lista.AddLast(2);
 			Lista.DelNodePos(3);
+			Lista.DelAll();
 			a = Lista.Count();
-			Assert::AreEqual(a, 4);
+			Assert::AreEqual(a, 0);
 
 
 		}

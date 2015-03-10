@@ -18,9 +18,9 @@ class SList {
 		}
 	};
 
-//private:
+private:
 	node* start;
-//public:
+public:
 
 	
 	SList():start(NULL){};
@@ -67,35 +67,35 @@ class SList {
 	};
 
 	void DelAll(){
-		start->DeleteAll();
-		start = 0;
+		if (start != NULL){
+			start->DeleteAll();
+			start = 0;
+		}
 	}
 
 	void DelNodePos(int pos){
-		node *tmp = start;
-		node *tmp1 = tmp->next;
-
-		if (pos < 1 || pos > Count()){
-			printf("Fuera de Rango capullo!");
-		}
-		else if (pos == 1){
-			start = tmp->next;
-		}
-		else {
-			for (int i = 2; i <= pos; i++){
-				if (i == pos){
-					//node *auxiliar_node = tmp1;
-					tmp->next = tmp1->next;
-					//delete auxiliar_node;
+		if (start != NULL){
+			node *tmp = start;
+			node *tmp1 = tmp->next;
+			if (pos < 1 || pos > Count()){
+				printf("Fuera de Rango capullo!");
+			}
+			else if (pos == 1){
+				start = tmp->next;
+			}
+			else {
+				for (int i = 2; i <= pos; i++){
+					if (i == pos){
+						node *auxiliar_node = tmp1;
+						tmp->next = tmp1->next;
+						delete auxiliar_node;
+					}
+					tmp = tmp->next;
+					tmp1 = tmp1->next;
 				}
-				tmp = tmp->next;
-				tmp1 = tmp1->next;
 			}
 		}
 	}
-	
-
-
 };
 
 #endif //_ClassList_H_
