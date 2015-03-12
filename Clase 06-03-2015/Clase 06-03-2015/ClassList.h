@@ -6,29 +6,34 @@
 
 //https://ronnyml.wordpress.com/2009/07/04/listas-enlazadas-clase-lista-en-c/
 
-class SList {
 
-	struct node {
-		int valor;
-		node* next;
-		void DeleteAll(){
-			if (next)
-				next->DeleteAll();
-			delete this;
-		}
-	};
+template <class T>  
+
+struct node {
+	T value;
+	node<T> *next;
+	node<T> *previous;
+	void DeleteAll(){
+		if (next)
+			next->DeleteAll();
+		delete this;
+	}
+};
+
+template <class T> class
+SList {
 
 private:
-	node* start;
+	node<T>* start;
 public:
 
 	
 	SList():start(NULL){};
-	void AddLast(int valor) {
-		node* new_node = new node;
-		new_node->valor = valor;
+	void AddLast(T value) {
+		node<T>* new_node = new node<T>;
+		new_node->value = value;
 		new_node->next = NULL;
-		node* tmp = start;
+		node<T>* tmp = start;
 		if (!start){
 			start = new_node;
 		}
@@ -39,11 +44,11 @@ public:
 			tmp->next = new_node;
 		}
 	};
-	void AddStart(int valor) {
-		node* new_node = new node;
-		new_node->valor = valor;
+	void AddStart(T value) {
+		node<T>* new_node = new node<T>;
+		new_node->value = value;
 		new_node->next = NULL;
-		node* tmp = start;
+		node<T>* tmp = start;
 		if (!start){
 			start = new_node;
 		}
@@ -58,7 +63,7 @@ public:
 	
 	unsigned int Count() const{
 		unsigned int resultat = 0;
-		node* tmp = start;
+		node<T>* tmp = start;
 		while (tmp != NULL){
 			tmp = tmp->next;
 			resultat++;
@@ -75,8 +80,8 @@ public:
 
 	void DelNodePos(int pos){
 		if (start != NULL){
-			node *tmp = start;
-			node *tmp1 = tmp->next;
+			node<T> *tmp = start;
+			node<T> *tmp1 = tmp->next;
 			if (pos < 1 || pos > Count()){
 				printf("Fuera de Rango capullo!");
 			}

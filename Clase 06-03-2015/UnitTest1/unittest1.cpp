@@ -13,7 +13,7 @@ namespace UnitTest1
 		TEST_METHOD(TestMethod1)
 		{
 			// TODO: Agregar aquí el código de la prueba
-			SList Lista;
+			SList<int> Lista;
 			int a;
 			Lista.AddLast(2);
 			Lista.AddLast(2);
