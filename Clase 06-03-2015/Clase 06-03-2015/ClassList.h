@@ -91,7 +91,7 @@ public:
 			else {
 				for (int i = 2; i <= pos; i++){
 					if (i == pos){
-						node *auxiliar_node = tmp1;
+						node<T> *auxiliar_node = tmp1;
 						tmp->next = tmp1->next;
 						delete auxiliar_node;
 					}
