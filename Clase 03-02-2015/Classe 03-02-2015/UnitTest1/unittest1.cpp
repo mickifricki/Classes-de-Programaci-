@@ -12,13 +12,10 @@ namespace UnitTest1
 		
 		TEST_METHOD(TestMethod1)
 		{
-			int a = 2;
-			int b = 3;
-			swap(a, b);
-			printf("%d" "%d", a, b);
+			Assert::AreEqual(min(5, 10), 5);
+			Assert::AreEqual(max(6,34), 34);
 
-			Assert::AreEqual(a, 3);
-			Assert::AreEqual(b, 2);
+
 		}
 
 	};

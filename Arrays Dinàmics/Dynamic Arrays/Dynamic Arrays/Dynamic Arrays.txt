@@ -1,0 +1,8 @@
+Arrays Dinàmics:
+
+
+int i; 
+float* arr = new float[i];
+
+
+delete[] arr;    -> si en el new utilitzem [] també els hem de col·locar en el delete

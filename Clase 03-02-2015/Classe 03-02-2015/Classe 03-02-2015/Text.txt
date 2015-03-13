@@ -30,3 +30,6 @@ Els templates són generadors de codi, per fer-ne un de la funció swap(), es fari
 
 
 Linked List (buscar informació)
+
+if (a < b) a
+	else b
