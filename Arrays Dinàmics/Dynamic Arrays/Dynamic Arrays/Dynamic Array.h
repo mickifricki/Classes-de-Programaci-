@@ -1,5 +1,5 @@
-#ifndef _Dynamic_Array_H_
-#define _Dynamic_Array_H_
+#ifndef _DYNAMICARRAY_H_
+#define _DYNAMICARRAY_H_
 
 #include <stdio.h>
 #include <assert.h>
@@ -45,7 +45,10 @@ public:
 				idata[uinumber_elements] = value;
 			}
 			else
+			{
 				printf("Fuera de rango jeuputa!");
+			}
+		}
 		else
 		{
 			Reallocate(1);
@@ -57,7 +60,7 @@ public:
 		int value = 0;
 		if (uinumber_elements > 0)
 		{
-			value = idata[uinumber_elements];
+			value = idata[uinumber_elements - 1];
 			--uinumber_elements;
 
 			return value;
