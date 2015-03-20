@@ -31,7 +31,7 @@ public:
 	};
 	void PushBack(int value)
 	{
-		if (uinumber_elements){
+		if (uinumber_elements > 0){
 			if (uiallocated_memory - uinumber_elements == 0)
 			{
 				int* tmp = new int[uinumber_elements];
@@ -46,7 +46,7 @@ public:
 			}
 			else
 			{
-				printf("Fuera de rango jeuputa!");
+				printf("Fuera de rango jueputa!");
 			}
 		}
 		else
@@ -68,7 +68,23 @@ public:
 		else
 			return NULL;
 	}
-	void Insert(int value, unsigned int position);
+	void Insert(int value, unsigned int position)
+	{
+		if (uinumber_elements > 0 && position < uinumber_elements){
+			if (uiallocated_memory - uinumber_elements == 0)
+			{
+				int* tmp = new int[uinumber_elements];
+				CopyArray(idata, tmp);
+				Reallocate(uiallocated_memory + 1);
+				CopyArray(tmp, idata);
+				for (int i = position; i < uinumber_elements; i++)
+				{
+					idata[i + 1] = idata[i];
+				}
+				idata[uinumber_elements] = value;
+			}
+		}
+	}
 	int& operator[] (unsigned int index)
 	{
 		assert(index < uinumber_elements);
