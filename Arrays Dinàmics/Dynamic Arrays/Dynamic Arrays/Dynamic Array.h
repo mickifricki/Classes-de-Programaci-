@@ -70,16 +70,16 @@ public:
 	}
 	void Insert(int value, unsigned int position)
 	{
-		if (uinumber_elements > 0 && position < uinumber_elements){
+		if (uinumber_elements > 0 && position < uinumber_elements && position>=0){
 			if (uiallocated_memory - uinumber_elements == 0)
 			{
 				int* tmp = new int[uinumber_elements];
 				CopyArray(idata, tmp);
 				Reallocate(uiallocated_memory + 1);
 				CopyArray(tmp, idata);
-				for (int i = position; i < uinumber_elements; i++)
+				for (int i = uinumber_elements-2; i >= position; i--)
 				{
-					idata[i] = idata[i + 1];
+					idata[i+1] = idata[i];
 				}
 				idata[position] = value;
 			}
