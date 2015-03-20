@@ -79,9 +79,9 @@ public:
 				CopyArray(tmp, idata);
 				for (int i = position; i < uinumber_elements; i++)
 				{
-					idata[i + 1] = idata[i];
+					idata[i] = idata[i + 1];
 				}
-				idata[uinumber_elements] = value;
+				idata[position] = value;
 			}
 		}
 	}
