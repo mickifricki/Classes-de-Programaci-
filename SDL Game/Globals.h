@@ -14,14 +14,12 @@ enum update_status
 };
 
 // Configuration -----------
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 768
-#define FULLSCREEN 0
-#define TITLE "The Most Epic And Awesome Game Of All Times"
-#define BORDERLESS 0
-#define WINDOW_RESIZABLE 0
-#define WINDOW_FULLSCREEN_DESKTOP 0
-
-
-
-
+#define SCREEN_WIDTH 384
+#define SCREEN_HEIGHT 224
+#define SCREEN_SIZE 2
+#define WIN_FULLSCREEN false
+#define WIN_RESIZABLE false
+#define WIN_BORDERLESS false
+#define WIN_FULLSCREEN_DESKTOP false
+#define VSYNC true
+#define TITLE "Super Awesome Game"

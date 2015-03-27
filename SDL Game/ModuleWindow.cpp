@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "ModuleWindow.h"
 
-ModuleWindow::ModuleWindow() : Module()
+ModuleWindow::ModuleWindow(Application* app) : Module(app)
 {
 	window = NULL;
 	screen_surface = NULL;
@@ -27,28 +27,29 @@ bool ModuleWindow::Init()
 	else
 	{
 		//Create window
-		int width = SCREEN_WIDTH;
-		int height = SCREEN_HEIGHT;
+		int width = SCREEN_WIDTH * SCREEN_SIZE;
+		int height = SCREEN_HEIGHT * SCREEN_SIZE;
 		Uint32 flags = SDL_WINDOW_SHOWN;
 
-		if(FULLSCREEN == true)
+		if(WIN_FULLSCREEN == true)
 		{
 			flags |= SDL_WINDOW_FULLSCREEN;
 		}
-		if (BORDERLESS == true)
-		{
-			flags |= SDL_WINDOW_BORDERLESS;
-		}
-		if (WINDOW_RESIZABLE == true)
+
+		if(WIN_RESIZABLE == true)
 		{
 			flags |= SDL_WINDOW_RESIZABLE;
 		}
-		if (WINDOW_FULLSCREEN_DESKTOP == true)
+
+		if(WIN_BORDERLESS == true)
+		{
+			flags |= SDL_WINDOW_BORDERLESS;
+		}
+
+		if(WIN_FULLSCREEN_DESKTOP == true)
 		{
 			flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 		}
-
-		// TODO: SDL_WINDOW_BORDERLESS, SDL_WINDOW_RESIZABLE,  SDL_WINDOW_FULLSCREEN_DESKTOP
 
 		window = SDL_CreateWindow(TITLE, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags);
 
