@@ -1,0 +1,4 @@
+Pila -> Stack o LIFO (Last Input First Output)
+
+A mida que van entrant es queda un sobre de l'altre (és com el 'coso' de la roba bruta)
+
