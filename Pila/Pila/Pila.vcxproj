@@ -66,6 +66,14 @@
   <ItemGroup>
     <Text Include="Text.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="queue.h" />
+    <ClInclude Include="Stack.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="Stack.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

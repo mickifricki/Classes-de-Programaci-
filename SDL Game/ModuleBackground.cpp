@@ -27,10 +27,11 @@ ModuleBackground::ModuleBackground(Application* app) : Module(app)
 	flag.speed = 0.08f;
 
 	//Ship
+
 	ship.x = 8;
 	ship.y = 24;
-	ship.w = 530;
-	ship.h= 204;
+	ship.w = 521;
+	ship.h = 184;
 
 	//girl animation
 	girl.frames.PushBack({ 624, 16, 32, 57 });
@@ -88,7 +89,10 @@ update_status ModuleBackground::Update()
 	App->renderer->Blit(graphics, 88, 24, &(brownman.GetCurrentFrame()), 0.9f); //brown man animation
 
 	// TODO 2: Draw the ship from the sprite sheet with some parallax effect
+
+
 	// TODO 3: Animate the girl on the ship (see the sprite sheet)
+
 	
 	App->renderer->Blit(graphics, 0, 170, &ground);
 

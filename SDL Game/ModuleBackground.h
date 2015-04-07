@@ -17,8 +17,8 @@ public:
 	SDL_Texture* graphics;
 	SDL_Rect ground;
 	SDL_Rect background;
-	Animation flag;
 	SDL_Rect ship;
+	Animation flag;
 	Animation girl;
 	Animation twomen;
 	Animation greenman;

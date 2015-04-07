@@ -50,18 +50,18 @@ update_status ModuleRender::Update()
 	int speed = 3;
 
 	if(App->input->keyboard[SDL_SCANCODE_UP] == 1)
-		App->renderer->camera.y += speed;
+		camera.y += speed;
 
 	if(App->input->keyboard[SDL_SCANCODE_DOWN] == 1)
-		App->renderer->camera.y -= speed;
-	
-	// TODO 1: make the camera move left and right
-	
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == 1)
-		App->renderer->camera.x += speed;
+		camera.y -= speed;
 
 	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == 1)
-		App->renderer->camera.x -= speed;
+		camera.x += speed;
+
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == 1)
+		camera.x -= speed;
+
+	// TODO 1: make the camera move left and right
 
 	return UPDATE_CONTINUE;
 }

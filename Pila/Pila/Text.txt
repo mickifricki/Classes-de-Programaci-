@@ -1,4 +1,7 @@
 Pila -> Stack o LIFO (Last Input First Output)
 
-A mida que van entrant es queda un sobre de l'altre (és com el 'coso' de la roba bruta)
+A mida que van entrant es queda un sobre de l'altre (és com el 'coso' de la roba bruta). Entra A,B,C. Treus C,B,A.
 
+Cua -> queue FIFO (First Input First Output)
+
+És igual que una Pila, però t'ho torna en el mateix ordre en que ho has introduït (Entra A,B,C i surt A,B,C).
