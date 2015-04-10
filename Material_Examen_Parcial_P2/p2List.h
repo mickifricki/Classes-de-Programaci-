@@ -130,6 +130,12 @@ public:
 		return(true);
 	}
 
+	unsigned int delNodes(unsigned int from, unsigned int amount)
+	{
+		unsigned int ret = 0;
+		if (from < sizeC || amount == 0)
+	}
+
 	/**
 	* Destroy and free all mem
 	*/

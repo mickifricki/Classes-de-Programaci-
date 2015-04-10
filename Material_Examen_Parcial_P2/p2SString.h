@@ -172,6 +172,9 @@ public:
 
 		return(*this);
 	}
+	const p2SString& Prefix(const p2SString& str){
+
+	}
 
 	// Utils
 	unsigned int Length() const
